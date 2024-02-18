@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .back-btn {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Complaints</h2>
+                <button class="btn btn-primary back-btn" onclick="location.href='index.html'">Back</button>
+                <ul id="complaints-list" class="list-group">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            const user = JSON.parse(localStorage.getItem("user"));
+            if (!user) {
+                location.href = "login.html";
+            }
+            const complaints = [
+                { id: 1, title: "Problem 1", description: "Description 1" },
+                { id: 2, title: "Problem 2", description: "Description 2" },
+                { id: 3, title: "Problem 3", description: "Description 3" },
+            ];
+            complaints.forEach(complaint => {
+                $("#complaints-list").append(`
+                    <li class="list-group-item">
+                        <h5 class="mb-1">${complaint.title}</h5>
+                        <p>${complaint.description}</p>
+                    </li>
+                `);
+            });
+        });
+    </script>
+</body>
+</html>

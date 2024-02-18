@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .problem-list {
+            width: 100%;
+            padding: 0;
+        }
+
+        .problem-list .list-group-item {
+            border: none;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .problem-list .list-group-item:last-child {
+            border-bottom: none;
+        }
+
+        .problem-list .list-group-item .btn {
+            display: none;
+        }
+
+        .problem-list .list-group-item:hover .btn {
+            display: inline-block;
+        }
+        .problem-list .list-group-item .btn img {
+            width: 50%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function viewText(problemNumber) {
+            const problemText = document.getElementById('problem-text-' + problemNumber);
+            if (problemText.style.display === 'none') {
+                problemText.style.display = 'block';
+            } else {
+                problemText.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="problem-list list-group">
+                    <li class="list-group-item">
+                        <h5 class="mb-1">Problem 1</h5>
+                        <p>"There has been an excessive amount of garbage accumulating on my street. It's become a breeding ground for rodents and insects,
+                             and it's starting to smell terrible. I've reported it several times, but nothing has been done about it. 
+                             Please take action and address this issue as soon as possible."</p>
+                        <button class="btn btn-success" onclick="viewText(1)">View</button>
+                        <div id="problem-text-1" style="display: none;">
+                            <img src="problem1.jpg" alt="Problem 1 Image" width="40%" height="350px">
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="mb-1">Problem 2</h5>
+                        <p>"I've noticed that the garbage collectors have been missing our street for the past two weeks
+                            . As a result, our bins are overflowing, and the area is starting to look unsightly. I've checked the schedule, 
+                            and there haven't been any changes.Can you please ensure that our street is included in the next garbage collection route?"</p>
+                        <button class="btn btn-success" onclick="viewText(2)">View</button>
+                        <div id="problem-text-2" style="display: none;">
+                            <img src="problem2.jpg" alt="Problem 2 Image" width="40%" height="350px">
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="mb-1">Problem 3</h5>
+                        <p>I recently moved into a new apartment complex, and I've noticed that the
+                            garbage disposal system is inadequate. The bins are too small, and they
+                            fill up quickly, resulting in garbage spilling over onto the ground. This
+                            is not only unsanitary but also unattractive. I would appreciate it if you
+                            could look into upgrading the garbage disposal system to better serve the
+                            residents.</p>
+                        <button class="btn btn-success" onclick="viewText(3)">View</button>
+                        <div id="problem-text-3" style="display: none;">
+                            <img src="problem3.jpg" alt="Problem 3 Image" width="40%" height="350px">
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="mb-1">Problem 4</h5>
+                        <p>I'm concerned about the safety of the garbage collectors in our neighborhood. The roads are
+                            narrow and winding, and there have been several close calls between the garbage trucks and
+                            oncoming traffic. I would suggest implementing measures to ensure the safety of the garbage
+                            collectors, such as scheduling collections during off-peak hours or providing additional
+                            training on navigating the area.</p>
+                        <button class="btn btn-success" onclick="viewText(4)">View</button>
+                        <div id="problem-text-4" style="display: none;">
+                            <img src="problem4.jpg" alt="Problem 4 Image" width="40%" height="350px">
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="mb-1">Problem 5</h5>
+                        <p>I've noticed that the garbage collectors have been throwing recyclables into the regular
+                            garbage bins. This is not only wasteful but also harmful to the environment. I would
+                            appreciate it if you could remind the garbage collectors of the importance of recycling and
+                            provide them with proper training on how to sort recyclables from regular garbage.</p>
+                        <button class="btn btn-success" onclick="viewText(5)">View</button>
+                        <div id="problem-text-5" style="display: none;">
+                            <img src="problem5.jpg" alt="Problem 5 Image" width="40%" height="350px">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success back-btn" onclick="location.href='login.html'">Back</button>
+    </div>
+</body>
+
+</html>

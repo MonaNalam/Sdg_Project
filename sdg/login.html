@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .form-group {
+            text-align: justify;
+        }
+        .form-control {
+            width: 100%;
+        }
+        body{
+            background-image: url('bg3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center;margin-top: 10px;font-size: 55px;color: green;text-decoration: underline;">Dump Watch</h2> 
+        <h2 style="text-align: center;margin-top: 60px;margin-bottom: 40px;font-size: 40px">Admin Login</h2> 
+        <form id="login-form">
+            <div class="form-group">
+                <label for="name" style="font-weight: bold;" >Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="idNumber" style="font-weight: bold;" >ID Number:</label>
+                <input type="text" class="form-control" id="idNumber" placeholder="Enter ID number" required>
+            </div>
+            <div class="form-group">
+                <label for="pwd" style="font-weight: bold;" >Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const idNumber = document.getElementById('idNumber').value;
+            const pwd = document.getElementById('pwd').value;
+            window.location.href = 'complaints.html?name=' + name + '&idNumber=' + idNumber;
+        });
+    </script>
+</body>
+</html>

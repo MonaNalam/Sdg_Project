@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report garbage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+        .btn-submit:hover {
+            opacity: 1;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        body {
+            background-image: url('bg1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">DumpWatch</h1>
+        <form id="garbageForm">
+            <!-- <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name (optional)">
+            </div> -->
+            <div class="form-group">
+                <label for="location" style="font-weight: bold;">Location URL:</label>
+                <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" required>
+                <div class="error" id="locationError"></div>
+            </div>
+            <div class="form-group">
+                <label for="date" style="font-weight: bold;">Date:</label>
+                <input type="date" class="form-control" id="date" name="date" placeholder="Select date" required>
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo:</label>
+                <input type="file" class="form-control" id="photo" name="photo" required>
+            </div>
+            <div class="form-group">
+                <label for="complaint" style="font-weight: bold;">Complaint:</label>
+                <textarea class="form-control" id="complaint" name="complaint" placeholder="Enter complaint" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit">Submit</button>
+            <div class="error" id="error"></div>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#location').on('input', function() {
+                const locationUrl = $(this).val();
+                if (isValidUrl(locationUrl)) {
+                    $('#locationError').text('');
+                } else {
+                    $('#locationError').text('Invalid location URL');
+                }
+            });
+
+            $('#garbageForm').on('submit', function(e) {
+                e.preventDefault();
+                if ($('#location').val() === '' || $('#date').val() === '' || $('#photo').val() === '' || $('#complaint').val() === '') {
+                    $('#error').text('All fields must be filled');
+                } else {
+                    const locationUrl = $('#location').val();
+                    if (isValidUrl(locationUrl)) {
+                        window.location.href = 'submission_completed.html';
+                    } else {
+                        $('#error').text('Invalid location URL');
+                    }
+                }
+            });
+
+            function isValidUrl(url) {
+                try {
+                    new URL(url);
+                    return true;
+                } catch (err) {
+                    return false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
